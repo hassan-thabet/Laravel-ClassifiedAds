@@ -70,7 +70,7 @@
                                                     <i class="fa fa-circle font-small-3 text-success mr-50"></i>{{$product -> getStatus()}}
                                                 @endif
                                             </td>
-                                            <td >{{count($product->category) > 0 ? $product->category->category_name : 'Not On Category'}} </td>
+                                            <td >{{$product->category->category_name}} </td>
                                             <td>{{$product->price}} </td>
 
                                             <td>

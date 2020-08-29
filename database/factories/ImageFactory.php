@@ -8,6 +8,6 @@ use Faker\Generator as Faker;
 $factory->define(Image::class, function (Faker $faker) {
     return [
         'url' => $faker->imageUrl(800 , 600),
-        'product_id' => $faker->numberBetween(1 , 200),
+        'product_id' => 1
     ];
 });
