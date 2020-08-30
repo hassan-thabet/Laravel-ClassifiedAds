@@ -40,31 +40,27 @@
                                     <h4 class="mb-0">Add New Category</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form class="form-horizontal" novalidate="">
+
+                                    <form class="form-horizontal" action="{{route('admin.store')}}" novalidate="" method="POST" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-12" style="padding-right: 50px">
                                                 <div class="form-group">
                                                     <div class="controls">
-                                                        <label for="account-username">Category Name</label>
-                                                        <input type="text" class="form-control" id="account-username" placeholder="" value="" required="" data-validation-required-message="This field is required">
+                                                        <label for="category_name">Category Name</label>
+                                                        <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Category Name" required="" data-validation-required-message="This field is required">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div style="padding-right: 50px" class="media">
-                                                <a href="javascript: void(0);">
-                                                    <img src="../../../app-assets/images/portrait/small/avatar-s-12.jpg" class="rounded mr-75" alt="profile image" height="64" width="64">
-                                                </a>
-                                                <div class="media-body mt-75">
-                                                    <div class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
-                                                        <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer waves-effect waves-light" for="account-upload">Upload new photo</label>
-                                                        <input type="file" id="account-upload" hidden="">
-                                                        <button class="btn btn-sm btn-outline-warning ml-50 waves-effect waves-light">Reset</button>
+                                            <div class="col-12" style="padding-right: 50px">
+                                                <div class="form-group">
+                                                    <div class="controls">
+                                                        <label for="icon_url">Icon URL</label>
+                                                        <input type="text" class="form-control" id="icon_url" name="icon_url" placeholder="Icon URL"  required="" data-validation-required-message="This field is required">
                                                     </div>
-                                                    <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or PNG. Max
-                                                            size of
-                                                            800kB</small></p>
                                                 </div>
                                             </div>
+
 
                                         </div>
                                         <div style="padding-right: 36px ; padding-top: 30px">

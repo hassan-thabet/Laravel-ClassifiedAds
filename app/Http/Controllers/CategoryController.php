@@ -13,4 +13,25 @@ class CategoryController extends Controller
             'categories' => $categories ,
         ]);
     }
+
+    public function create(){
+        return view('admin.categories.add-new');
+    }
+
+    public function store(Request $request){
+
+        try {
+            Category::create([
+                'category_name' => $request->category_name,
+                'icon_url' => $request->icon_url,
+            ]);
+
+            return redirect()->route('admin.categories');
+            //return $request;
+        }catch (\Exception $exception){
+            return $exception;
+        }
+
+    }
+
 }

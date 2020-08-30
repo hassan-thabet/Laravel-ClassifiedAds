@@ -29,7 +29,7 @@
                         <div class="dropdown">
                             <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle waves-effect waves-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Add New</a>
+                                <a class="dropdown-item" href="{{route('admin.create')}}">Add New</a>
 
                             </div>
                         </div>

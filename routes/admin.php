@@ -17,9 +17,17 @@ Route::group(['namespace' => 'DashboardControllers' , 'middleware' => 'auth:admi
 });
 
 Route::group([ 'middleware' => 'auth:admin'] , function (){
-    Route::get('/categories' , 'CategoryController@index') ->name('admin.categories');
     Route::get('/products' , 'ProductController@index') ->name('admin.products');
     Route::get('/users' , 'UserController@index') ->name('admin.users');
+
+
+});
+
+Route::group([ 'middleware' => 'auth:admin'] , function (){
+    Route::get('/categories' , 'CategoryController@index') ->name('admin.categories');
+    Route::get('/create' , 'CategoryController@create') ->name('admin.create');
+    Route::post('/store' , 'CategoryController@store') ->name('admin.store');
+
 
 
 });
