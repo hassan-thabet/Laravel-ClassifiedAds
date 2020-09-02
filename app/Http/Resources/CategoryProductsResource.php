@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CategoryResource extends JsonResource
+class CategoryProductsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,6 +18,7 @@ class CategoryResource extends JsonResource
             'category_id' => $this->id,
             'category_name' => $this->category_name,
             'icon_url' => $this->icon_url,
-            ];
+            'category-products' => $this->products->count() > 0 ? ProductResource::collection($this->products) : 'no products',
+        ];
     }
 }

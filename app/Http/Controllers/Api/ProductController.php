@@ -14,6 +14,7 @@ class ProductController extends Controller
         return ProductResource::collection(Product::where('status' , 'active')->paginate());
     }
 
+
     public function show($id){
         return new ProductResource(Product::find($id));
     }

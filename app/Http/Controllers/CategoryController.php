@@ -27,7 +27,7 @@ class CategoryController extends Controller
             ]);
 
             return redirect()->route('admin.categories');
-            //return $request;
+
         }catch (\Exception $exception){
             return $exception;
         }
