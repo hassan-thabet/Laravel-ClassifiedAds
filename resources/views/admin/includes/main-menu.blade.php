@@ -30,11 +30,11 @@
             </li>
             <li class=" nav-item"><a href="app-calender.html"><i class="feather icon-calendar"></i><span class="menu-title" data-i18n="Calender">Calender</span></a>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Ecommerce">Ecommerce</span></a>
+            <li class=" nav-item"><a href=""><i class="feather icon-layout"></i><span class="menu-title" data-i18n="Ecommerce">Products</span></a>
                 <ul class="menu-content">
-                    <li><a href="app-ecommerce-shop.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">Shop</span></a>
+                    <li><a href="{{route('admin.products')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">All Products</span></a>
                     </li>
-                    <li><a href="app-ecommerce-details.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Details">Details</span></a>
+                    <li><a href="{{route('admin.pending-products')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Details">Pending Products</span></a>
                     </li>
                     <li><a href="app-ecommerce-wishlist.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">Wish List</span></a>
                     </li>

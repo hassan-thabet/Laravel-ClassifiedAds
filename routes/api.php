@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::get('categories','Api\CategoryController@index');
 
 Route::get('products','Api\ProductController@index');

@@ -16,19 +16,26 @@ Route::group(['namespace' => 'DashboardControllers' , 'middleware' => 'auth:admi
     Route::get('/logout' , 'LoginController@logout') ->name('admin.logout');
 });
 
+
+////////// Products Routes
 Route::group([ 'middleware' => 'auth:admin'] , function (){
     Route::get('/products' , 'ProductController@index') ->name('admin.products');
-    Route::get('/users' , 'UserController@index') ->name('admin.users');
-
-
+    Route::get('/pending-products' , 'ProductController@pendingIndex') ->name('admin.pending-products');
+    Route::get('/changeStatus/{id}' , 'ProductController@changeStatus') ->name('admin.change-status');
+    Route::get('/destroy/{id}' , 'ProductController@destroy') ->name('admin.destroy');
 });
 
+////////// Users Routes
+Route::group([ 'middleware' => 'auth:admin'] , function (){
+    Route::get('/users' , 'UserController@index') ->name('admin.users');
+});
+
+
+////////// Categories Routes
 Route::group([ 'middleware' => 'auth:admin'] , function (){
     Route::get('/categories' , 'CategoryController@index') ->name('admin.categories');
     Route::get('/create' , 'CategoryController@create') ->name('admin.create');
     Route::post('/store' , 'CategoryController@store') ->name('admin.store');
-
-
-
 });
+
 

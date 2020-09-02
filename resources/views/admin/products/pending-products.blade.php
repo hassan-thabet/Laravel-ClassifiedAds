@@ -12,25 +12,16 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Products</h2>
+                            <h2 class="content-header-title float-left mb-0">Pending Products</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="">Home</a>
                                     </li>
                                     <li class="breadcrumb-item"><a href="#">Products</a>
                                     </li>
+                                    <li class="breadcrumb-item"><a href="#">Pending Products</a>
+                                    </li>
                                 </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                    <div class="form-group breadcrum-right">
-                        <div class="dropdown">
-                            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle waves-effect waves-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Add New</a>
-
                             </div>
                         </div>
                     </div>
@@ -58,26 +49,26 @@
                                         <th>ACTIONS</th>
                                     </tr>
                                     </thead>
-                                    @foreach($products as $product)
+                                    @foreach($pendingProducts as $pendingProduct)
                                         <tbody>
                                         <tr>
-                                            <td>#{{$product->id}} - <img class="media-object rounded-circle" src="{{count($product->images) > 0 ? $product->images[0]->url : 'https://via.placeholder.com/150'}}" alt="Avatar" height="35" width="35"></td>
-                                            <td>{{ \Illuminate\Support\Str::limit($product -> title, 25, $end='...') }}</td>
+                                            <td>#{{$pendingProduct->id}} - <img class="media-object rounded-circle" src="{{count($pendingProduct->images) > 0 ? $pendingProduct->images[0]->url : 'https://via.placeholder.com/150'}}" alt="Avatar" height="35" width="35"></td>
+                                            <td>{{ \Illuminate\Support\Str::limit($pendingProduct -> title, 25, $end='...') }}</td>
                                             <td>
-                                                @if($product -> getStatus() == 'Pending')
-                                                    <i class="fa fa-circle font-small-3 text-warning mr-50"></i>{{$product -> getStatus()}}
+                                                @if($pendingProduct -> getStatus() == 'Pending')
+                                                    <i class="fa fa-circle font-small-3 text-warning mr-50"></i>{{$pendingProduct -> getStatus()}}
                                                 @else
-                                                    <i class="fa fa-circle font-small-3 text-success mr-50"></i>{{$product -> getStatus()}}
+                                                    <i class="fa fa-circle font-small-3 text-success mr-50"></i>{{$pendingProduct -> getStatus()}}
                                                 @endif
                                             </td>
-                                            <td >{{$product->category->category_name}} </td>
-                                            <td>{{$product->price}} </td>
+                                            <td >{{$pendingProduct->category->category_name}} </td>
+                                            <td>{{$pendingProduct->price}} </td>
 
                                             <td>
                                                 <div class="row" style="align-content: space-between">
                                                     <a class="todo-item-info primary" href=""><i class="feather icon-settings" style="padding: 8px"></i></a>
-                                                    <a class="todo-item-favorite danger" href="{{route('admin.destroy' , $product -> id)}}"><i class="feather icon-trash"  style="padding: 8px"></i></a>
-                                                    <a class="todo-item-delete warning" href="{{route('admin.change-status' , $product -> id)}}"><i class="feather icon-refresh-ccw"  style="padding: 8px"></i></a>
+                                                    <a class="todo-item-favorite danger" href="{{route('admin.destroy' , $pendingProduct -> id)}}"><i class="feather icon-trash"  style="padding: 8px"></i></a>
+                                                    <a class="todo-item-delete warning" href="{{route('admin.change-status' , $pendingProduct -> id)}}"><i class="feather icon-refresh-ccw"  style="padding: 8px"></i></a>
 
 
                                                 </div>
@@ -92,7 +83,7 @@
                         </div>
                     </div>
                     <ul class="pagination justify-content-center mt-2">
-                        {{ $products->links() }}
+                        {{ $pendingProducts->links() }}
                     </ul>
                 </section>
                 <!-- // Statistics Card section end-->

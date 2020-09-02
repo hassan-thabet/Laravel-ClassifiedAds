@@ -12,9 +12,9 @@
   box-shadow : -2px 2px 10px 0 rgba(0, 0, 0, 0.75);
 }
 
-.toast {
-  background-color : #7367F0;
-}
+/*.toast {*/
+/*  background-color : #7367F0;*/
+/*}*/
 
 .toast-success {
   background-color : #28C76F;
