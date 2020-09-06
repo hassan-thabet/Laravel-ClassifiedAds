@@ -36,6 +36,8 @@ Route::group([ 'middleware' => 'auth:admin'] , function (){
     Route::get('/categories' , 'CategoryController@index') ->name('admin.categories');
     Route::get('/create' , 'CategoryController@create') ->name('admin.create');
     Route::post('/store' , 'CategoryController@store') ->name('admin.store');
+    Route::get('/edit/{id}' , 'CategoryController@edit') ->name('admin.edit');
+    Route::post('/update/{id}' , 'CategoryController@update') ->name('admin.update');
 });
 
 

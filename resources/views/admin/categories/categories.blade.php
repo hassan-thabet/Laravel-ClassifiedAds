@@ -24,17 +24,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                    <div class="form-group breadcrum-right">
-                        <div class="dropdown">
-                            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle waves-effect waves-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="{{route('admin.create')}}">Add New</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
 
@@ -69,7 +58,7 @@
 
                                                     <td>
                                                         <div class="row" style="align-content: space-between">
-                                                            <a class="todo-item-info primary" href=""><i class="feather icon-settings" style="padding: 8px"></i></a>
+                                                            <a class="todo-item-info primary" href="{{route('admin.edit' , $category -> id)}}"><i class="feather icon-settings" style="padding: 8px"></i></a>
                                                             <a class="todo-item-favorite danger" href=""><i class="feather icon-trash"  style="padding: 8px"></i></a>
                                                             <a class="todo-item-delete warning" href=""><i class="feather icon-refresh-ccw"  style="padding: 8px"></i></a>
 
