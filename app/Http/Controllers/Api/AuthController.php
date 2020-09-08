@@ -52,11 +52,12 @@ class AuthController extends Controller
 
             return new UserApiResource($user);
         }
-
-        return [
+        $message =  [
             'error' => true,
             'message' => ' login data is error',
         ];
+        return response($message , 404 );
+
 
     }
 }
