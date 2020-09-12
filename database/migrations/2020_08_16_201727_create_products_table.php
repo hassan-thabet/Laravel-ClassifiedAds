@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->double('price');
             $table->string('status')->default('pending');
+            $table->string('sponsored')->default('false');
             $table->bigInteger('user_id');
             $table->bigInteger('category_id');
             $table->timestamps();

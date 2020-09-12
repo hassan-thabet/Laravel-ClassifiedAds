@@ -57,4 +57,11 @@ class User extends Authenticatable
     public function wishList(){
         return $this->hasOne(WishList::class);
     }
+    public function city(){
+        return $this->hasOne(City::class);
+    }
+    public function govarnorate(){
+        return $this->hasOne(Govarnorate::class);
+    }
+
 }

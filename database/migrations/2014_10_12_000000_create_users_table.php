@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->boolean('email_verified')->default(false);
             $table->boolean('mobile_verified')->default(false);
+            $table->string('Governorate');
+            $table->string('City');
             $table->string('password');
             $table->string('api_token' , 60)->unique();
             $table->rememberToken();

@@ -28,9 +28,9 @@
                     </li>
                     <li><a href="{{route('admin.pending-products')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Details">Pending Products</span></a>
                     </li>
-                    <li><a href="app-ecommerce-wishlist.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">Wish List</span></a>
+                    <li><a href="{{route('admin.sponsored-products')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">Sponsored Products</span></a>
                     </li>
-                    <li><a href="app-ecommerce-checkout.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Checkout">Checkout</span></a>
+                    <li><a href="{{route('admin.create-products')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Checkout">Post New AD</span></a>
                     </li>
                 </ul>
             </li>

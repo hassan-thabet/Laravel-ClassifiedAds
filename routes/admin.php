@@ -20,7 +20,11 @@ Route::group(['namespace' => 'DashboardControllers' , 'middleware' => 'auth:admi
 ////////// Products Routes
 Route::group([ 'middleware' => 'auth:admin'] , function (){
     Route::get('/products' , 'ProductController@index') ->name('admin.products');
+
     Route::get('/pending-products' , 'ProductController@pendingIndex') ->name('admin.pending-products');
+    Route::get('/sponsored-products' , 'ProductController@sponsoredIndex') ->name('admin.sponsored-products');
+    Route::get('/create-product' , 'ProductController@create') ->name('admin.create-products');
+    
     Route::get('/changeStatus/{id}' , 'ProductController@changeStatus') ->name('admin.change-status');
     Route::get('/destroy/{id}' , 'ProductController@destroy') ->name('admin.destroy');
 });

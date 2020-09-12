@@ -26,7 +26,22 @@ class ProductController extends Controller
         ]);
     }
 
+    public function sponsoredIndex()
+    {
+        $sponsoredProducts = Product::where('status' , 'active')
+        ->with(['category' , 'user' , 'images'])
+        ->paginate(30);
 
+    return view('admin.products.sponsored-products')->with([
+        'sponsoredProducts' => $sponsoredProducts,
+    ]);
+    }
+
+
+
+    public function create(){
+        return view('admin.products.post-new-ad');
+    }
 
     public function destroy($id){
         $anyProduct = Product::find($id);
