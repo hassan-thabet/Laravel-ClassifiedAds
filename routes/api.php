@@ -19,6 +19,7 @@ Route::get('categories/{category}','Api\CategoryController@show');
 
 Route::get('products','Api\ProductController@index');
 Route::get('products/{id}','Api\ProductController@show');
+Route::post('products/store','Api\ProductController@store');
 
 Route::post('auth/login' , 'Api\AuthController@login');
 Route::post('auth/register' , 'Api\AuthController@register');

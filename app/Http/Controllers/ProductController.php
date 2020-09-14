@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
+use App\Image;
 
 
 
@@ -40,7 +43,48 @@ class ProductController extends Controller
 
 
     public function create(){
-        return view('admin.products.post-new-ad');
+        $categories = Category::all();
+        return view('admin.products.post-new-ad' , compact('categories'));
+    }
+
+    public function Store(Request $request)
+    {
+        try {
+
+            $formInput=$request->all();
+            $images=array();   
+            
+           
+                $product = new Product();
+                $product -> title = $request->title;
+                $product -> description = $request->description;
+                $product -> price = $request->price;
+                $product -> status = $request->status;
+                $product -> sponsored =  $request->sponsored;
+                $product -> category_id =  $request->category_id;
+                $product -> user_id = $request->user_id;
+                $product -> save();
+            
+            if($files=$request->file('images')){
+                foreach($files as $file){
+                    $name=$file->hashName();
+                    $file->move('images',$name);
+                    $images[]=$name;
+                    Image::create(array_merge($formInput,
+                    [
+                        'product_id' => $product -> id,
+                        'url' => ($name),
+                        ],
+                    ));
+                }
+            }
+            toastr()->success('Data Has been saved Successfuly' , 'Successfuly');
+            return redirect()->back();
+
+        } catch (\Exception $th) {
+            return $th ; 
+        }
+
     }
 
     public function destroy($id){

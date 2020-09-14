@@ -61,7 +61,7 @@
                                     @foreach($products as $product)
                                         <tbody>
                                         <tr>
-                                            <td>#{{$product->id}} - <img class="media-object rounded-circle" src="{{count($product->images) > 0 ? $product->images[0]->url : 'https://via.placeholder.com/150'}}" alt="Avatar" height="35" width="35"></td>
+                                            <td>#{{$product->id}} - <img class="media-object rounded-circle" src="{{count($product->images) > 0 ?  'images/'. $product->images[0]->url : 'https://via.placeholder.com/150'}}" alt="Avatar" height="35" width="35"></td>
                                             <td>{{ \Illuminate\Support\Str::limit($product -> title, 25, $end='...') }}</td>
                                             <td>
                                                 @if($product -> getStatus() == 'Pending')

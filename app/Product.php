@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'title' , 'description' , 'price' , 'status' , 'user_id'
+        'title' , 'description' , 'price' , 'status' , 'sponsored' ,'user_id' , 'category_id'
     ];
 
     public function getStatus()
@@ -20,9 +20,11 @@ class Product extends Model
         return $this->belongsTo(User::class);
     }
     public function images(){
-        return $this->hasMany(Image::class);
+        return $this->hasMany(Image::class);    
     }
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+ 
 }

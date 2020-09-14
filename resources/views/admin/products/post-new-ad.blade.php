@@ -41,64 +41,77 @@
                                 </div>
                                 <div class="card-body">
 
-                                    <form class="form-horizontal" action="#" novalidate=""
+                                    <form class="form-horizontal" action="{{route('admin.store-products')}}" novalidate=""
                                      method="POST" 
                                      enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="row">
 
+
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-label-group">
-                                                        <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="fname-column">
-                                                        <label for="first-name-column">First Name</label>
+                                                        <input type="text" id="title" name="title" class="form-control" placeholder="Title">
+                                                        <label for="title">Title</label>
                                                     </div>
                                                 </div>
+
+
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-label-group">
-                                                        <input type="text" id="last-name-column" class="form-control" placeholder="Last Name" name="lname-column">
-                                                        <label for="last-name-column">Last Name</label>
+                                                        <input type="text" id="price" class="form-control" placeholder="Price" name="price">
+                                                        <label for="price">Price</label>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-label-group">
-                                                        <input type="text" id="city-column" class="form-control" placeholder="City" name="city-column">
-                                                        <label for="city-column">City</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-label-group">
-                                                        <input type="text" id="country-floating" class="form-control" name="country-floating" placeholder="Country">
-                                                        <label for="country-floating">Country</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-label-group">
-                                                        <input type="text" id="company-column" class="form-control" name="company-column" placeholder="Company">
-                                                        <label for="company-column">Company</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-label-group">
-                                                        <input type="email" id="email-id-column" class="form-control" name="email-id-column" placeholder="Email">
-                                                        <label for="email-id-column">Email</label>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group col-12">
-                                                    <fieldset class="checkbox">
-                                                        <div class="vs-checkbox-con vs-checkbox-primary">
-                                                            <input type="checkbox">
-                                                            <span class="vs-checkbox">
-                                                                <span class="vs-checkbox--check">
-                                                                    <i class="vs-icon feather icon-check"></i>
-                                                                </span>
-                                                            </span>
-                                                           
-                                                        </div>
+
+                                                <div class="col-12">
+                                                    <fieldset class="form-label-group">
+                                                        <textarea class="form-control" id="description" name="description" rows="3" placeholder="Description"></textarea>
+                                                        <label for="description">Description</label>
                                                     </fieldset>
                                                 </div>
+
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-label-group">
+                                                        <input type="text" id="status" value="pending" class="form-control" placeholder="Status [ active & pending ] only" name="status">
+                                                        <label for="status">Status</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-label-group">
+                                                        <input type="text" id="sponsored" class="form-control" value="false" name="sponsored" placeholder="Sponsored">
+                                                        <label for="sponsored">Sponsored</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-label-group">
+                                                        <input type="text" id="user_id" class="form-control" value="{{ Auth::user()->id}}" name="user_id" placeholder="User ID">
+                                                        <label for="user_id">User ID</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6 col-12">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-control" id="category_id" name="category_id">
+                                                            <option value="1">Choose category</option>
+                                                            @if($categories && $categories -> count() > 0)
+                                                                @foreach($categories as $category)
+                                                                    <option
+                                                                        value="{{$category -> id }}">{{$category -> category_name}}</option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="custom-file">
+                                                        <input type="file" name="images[]" multiple class="custom-file-input">
+                                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                    </div>
+                                                </div>
+
                                                 
-                                     
 
                                         </div>
                                         <div style="padding-right: 36px ; padding-top: 30px">

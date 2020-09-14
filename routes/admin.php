@@ -24,7 +24,8 @@ Route::group([ 'middleware' => 'auth:admin'] , function (){
     Route::get('/pending-products' , 'ProductController@pendingIndex') ->name('admin.pending-products');
     Route::get('/sponsored-products' , 'ProductController@sponsoredIndex') ->name('admin.sponsored-products');
     Route::get('/create-product' , 'ProductController@create') ->name('admin.create-products');
-    
+    Route::post('/store-product' , 'ProductController@store') ->name('admin.store-products');
+
     Route::get('/changeStatus/{id}' , 'ProductController@changeStatus') ->name('admin.change-status');
     Route::get('/destroy/{id}' , 'ProductController@destroy') ->name('admin.destroy');
 });
