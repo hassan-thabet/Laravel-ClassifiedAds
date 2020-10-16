@@ -44,6 +44,7 @@ class User extends Authenticatable
         return $this -> mobile_verified == 1 ? 'Verified' : 'Unverified';
 
     }
+
     public function getDate()
     {
         $date = $this -> created_at;
@@ -57,11 +58,4 @@ class User extends Authenticatable
     public function wishList(){
         return $this->hasOne(WishList::class);
     }
-    public function city(){
-        return $this->hasOne(City::class);
-    }
-    public function govarnorate(){
-        return $this->hasOne(Govarnorate::class);
-    }
-
 }

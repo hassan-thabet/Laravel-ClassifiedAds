@@ -22,6 +22,9 @@ class ProductController extends Controller
 
     public function Store(Request $request)
     {
+        $formInput=$request->all();
+        $images=array();
+
         
         $request -> validate([
             'title' => ['required', 'string', 'max:255'],
@@ -41,6 +44,22 @@ class ProductController extends Controller
         $product -> user_id = $request->input('user_id');
         
         $product -> save();
+
+
+        if($files=$request->file('images')){
+            foreach($files as $file){
+                $name=$file->hashName();
+                $file->move('images',$name);
+                $images[]=$name;
+                Image::create(array_merge($formInput,
+                [
+                    'product_id' => $product -> id,
+                    'url' => ($name),
+                    ],
+                ));
+            }
+        }
+
         return ($product);
             
 

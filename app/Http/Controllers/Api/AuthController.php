@@ -12,29 +12,51 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function register(Request $request){
+
         $request -> validate([
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required' , 'string', 'email', 'max:255', 'unique:users'],
-            'photo_url' => ['string'],
             'password' => ['required', 'string', 'min:8'],
-            'mobile' => ['required', 'string'],
+            'mobile' => ['required'],
         ]);
 
+        $photo_url = $request->file('photo_url');
+        $photoPath = $photo_url -> HashName();
+        $photo_url->move('user_photos',$photoPath);
+        // $name = 'UserPhotos/' . $photoPath;
+        // $profile_image_url = $upload_path . $profileImageSaveAsName;
 
-            $user = new User();
-            $user -> first_name = $request->input('first_name');
-            $user -> last_name = $request->input('last_name');
-            $user -> email = $request->input('email');
-            $user -> photo_url = $request->input('photo_url');
-            $user -> password  = Hash::make($request->input('password'));
-            $user -> mobile = $request->input('mobile');
-            $user -> api_token = bin2hex(openssl_random_pseudo_bytes(30));
+        $user = new User();
+        $user -> first_name = $request->input('first_name');
+        $user -> last_name = $request->input('last_name');
+        $user -> email = $request->input('email');
+        $user -> password  = Hash::make($request->input('password'));
+        $user -> mobile = $request->input('mobile');
+        $user -> photo_url = $photoPath;
+        $user -> api_token = bin2hex(openssl_random_pseudo_bytes(30));
+        $user -> save();
 
-            $user -> save();
+        return $user;
 
-
-            return new UserApiResource($user);
+        // if($files=$request->file('photo_url')){
+        //     foreach($files as $file){
+        //         $name=$file->hashName();
+        //         $file->move('photo_url',$name);
+        //         $photo_url=$name;
+        //         $user -> photo_url = $name;
+        //     }
+        // }
+        // if ($request->hasFile('photo_url')) {
+        //     $image = $request->file('photo_url');
+        
+        //     $fileName = $image->hashName();
+        //     $destinationPath = base_path() . '/public/UserPhotos/' . $fileName;
+        //     $image->move($destinationPath, $fileName);
+        
+        //     $attributes['photo_url'] = $fileName;
+        //     $user -> photo_url = $fileName;
+        // }
     }
 
 

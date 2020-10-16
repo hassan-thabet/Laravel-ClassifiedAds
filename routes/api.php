@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('categories','Api\CategoryController@index');
 Route::get('categories/{category}','Api\CategoryController@show');
 
+Route::get('users','UserController@index');
+
 Route::get('products','Api\ProductController@index');
 Route::get('products/{id}','Api\ProductController@show');
 Route::post('products/store','Api\ProductController@store');
