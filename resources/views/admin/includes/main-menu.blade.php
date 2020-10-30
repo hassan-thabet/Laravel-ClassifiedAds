@@ -18,7 +18,7 @@
                     </li>
                     <li><a href="dashboard-analytics.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Analytics</span></a>
                     </li>
-                    <li><a href="dashboard-ecommerce.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Updates">Updates</span></a>
+                    <li><a href="{{route('admin.updates')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Updates">Updates</span></a>
                     </li>
                 </ul>
             </li>

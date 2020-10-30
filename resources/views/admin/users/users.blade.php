@@ -53,7 +53,7 @@
                                             @foreach($users as $user)
                                             <tbody>
                                             <tr>
-                                                <td>#{{$user->id}} - <img class="media-object rounded-circle" src="{{'user_photos/' .$user->photo_url}}" alt="Avatar" height="35" width="35"></td>
+                                                <td>#{{$user->id}} - <img class="media-object rounded-circle" src="{{$user->images != null ?  'user_photos/'. $user->photo_url : 'https://via.placeholder.com/150'}}" alt="Avatar" height="35" width="35"></td>
                                                 <td>{{$user->first_name}} {{$user->last_name}}</td>
                                                 <td>
                                                     @if($user -> getActive() == 'Verified')

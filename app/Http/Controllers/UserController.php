@@ -13,4 +13,9 @@ class UserController extends Controller
          return view('admin.users.users')->with(['users' => $users]);
         //return UserResource::collection(User::all());
     }
+
+    public function updateIndex()
+    {
+        return view('admin.components.updates');
+    }
 }
