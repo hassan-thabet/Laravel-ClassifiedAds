@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index(){
         $users = User::with(['products'])->paginate(25);
-        // return view('admin.users.users')->with(['users' => $users]);
-        return UserResource::collection(User::all());
+         return view('admin.users.users')->with(['users' => $users]);
+        //return UserResource::collection(User::all());
     }
 }
