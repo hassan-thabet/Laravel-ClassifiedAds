@@ -20,7 +20,7 @@ class AuthController extends Controller
             'password' => ['required', 'string', 'min:8'],
             'mobile' => ['required'],
         ]);
-
+        
         $photo_url = $request->file('photo_url');
         $photoPath = $photo_url -> HashName();
         $photo_url->move('user_photos',$photoPath);
@@ -38,25 +38,6 @@ class AuthController extends Controller
         $user -> save();
 
         return $user;
-
-        // if($files=$request->file('photo_url')){
-        //     foreach($files as $file){
-        //         $name=$file->hashName();
-        //         $file->move('photo_url',$name);
-        //         $photo_url=$name;
-        //         $user -> photo_url = $name;
-        //     }
-        // }
-        // if ($request->hasFile('photo_url')) {
-        //     $image = $request->file('photo_url');
-        
-        //     $fileName = $image->hashName();
-        //     $destinationPath = base_path() . '/public/UserPhotos/' . $fileName;
-        //     $image->move($destinationPath, $fileName);
-        
-        //     $attributes['photo_url'] = $fileName;
-        //     $user -> photo_url = $fileName;
-        // }
     }
 
 
