@@ -33,6 +33,8 @@ Route::group([ 'middleware' => 'auth:admin'] , function (){
 ////////// Users Routes
 Route::group([ 'middleware' => 'auth:admin'] , function (){
     Route::get('/users' , 'UserController@index') ->name('admin.users');
+    Route::get('/new-user' , 'UserController@create') ->name('admin.user.create');
+    Route::post('/new-user' , 'UserController@store') ->name('admin.user.store');
 
     Route::get('/updates' , 'UserController@updateIndex') ->name('admin.updates');
 });

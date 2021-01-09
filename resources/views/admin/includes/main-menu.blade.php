@@ -36,7 +36,7 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href=""><i class="feather icon-package"></i><span class="menu-title" data-i18n="User">Categories</span></a>
+            <li class=" nav-item"><a href="#"><i class="feather icon-package"></i><span class="menu-title" data-i18n="User">Categories</span></a>
                 <ul class="menu-content">
                     <li><a href="{{route('admin.categories')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">All Category</span></a>
                     </li>
@@ -45,12 +45,20 @@
                 </ul>
             </li>
 
-            <li class=" nav-item"><a href="{{route('admin.categories')}}"><i class="feather icon-package"></i><span class="menu-title" data-i18n="Email">Users</span></a>
+            <li class=" nav-item"><a href=""><i class="feather icon-users"></i><span class="menu-title" data-i18n="User">Users</span></a>
+                <ul class="menu-content">
+                    <li><a href="{{route('admin.users')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">User List</span></a>
+                    </li>
+                    <li><a href="{{route('admin.user.create')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Add User</span></a>
+                    </li>
+                </ul>
             </li>
+
+            
             <li class=" nav-item"><a href="{{route('admin.products')}}"><i class="feather icon-layout"></i><span class="menu-title" data-i18n="Chat">Products</span></a>
             </li>
-            <li class=" nav-item"><a href="{{route('admin.users')}}"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Todo">Users</span></a>
-            </li>
+            
+
             <li class=" nav-item"><a href="app-calender.html"><i class="feather icon-calendar"></i><span class="menu-title" data-i18n="Calender">Calender</span></a>
             </li>
 

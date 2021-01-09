@@ -101,7 +101,7 @@
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">{{ Auth::user()->first_name}} {{ Auth::user()->last_name}}</span><span class="user-status">Administrator</span></div>
                             <div class="avatar mr-1">
-                                <span class="avatar-content"><img class="round" src="{{ Auth::user()->photo_url }}" alt="avatar" height="32" width="32"></span>
+                                <span class="avatar-content"><img class="round" src="https://instagram.faly1-2.fna.fbcdn.net/v/t51.2885-15/e35/50170746_611260702650451_9064273420500606727_n.jpg?_nc_ht=instagram.faly1-2.fna.fbcdn.net&_nc_cat=107&_nc_ohc=b3Uqfl2oVPAAX-7mf8Z&tp=18&oh=e8c7d049fd589a7b74710d3af6371321&oe=5FC58FC9" alt="avatar" height="32" width="32"></span>
                                 <span class="avatar-status-online"></span>
                             </div>
 
